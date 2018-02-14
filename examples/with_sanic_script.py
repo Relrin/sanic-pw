@@ -1,5 +1,5 @@
 # --------------------------------------------------
-# For using it you will need to install also:
+# For running this example you will need to install:
 # sanic==0.7.0
 # sanic_script==0.3
 # --------------------------------------------------
