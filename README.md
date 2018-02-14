@@ -12,8 +12,6 @@ A port of the [Flask-PW](https://github.com/klen/flask-pw) package for [Sanic fr
 # Requirements
 - Python 3.6+ (older not tested)
 
-**NOTE**: For using the latest Peewee ORM releases with the `pewee_async` package, necessary that `pewee_async` will have made changes in the codebase and prepared a new release. Otherwise, you can install the latest compatible `pewee_async` 2.10.2 release.
-
 # Using
 ## Installing
 For installing Sanic-PW use the following command:
@@ -38,7 +36,7 @@ pip install sanic-pw
 ## Migrations
 If you're using the Sanic-Script package, then append a new command to your manager:
 ```python
-from sanic_pw import Peeweee
+from sanic_pw import Peewee
 
 # ...
 app.db = Peewee(app)
@@ -48,7 +46,7 @@ manager.add_command('db', app.db.manager)
 ```
 For a case when you're prefer to use click it almost the same:
 ```python
-from sanic_pw import Peeweee
+from sanic_pw import Peewee
 
 # ...
 app.db = Peewee(app)
