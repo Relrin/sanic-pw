@@ -2,7 +2,7 @@ import logging
 import os
 from importlib import import_module
 
-import peewee as pw
+from peewee import Model as PeeweeModel, Proxy
 from cached_property import cached_property
 from peewee_migrate.router import Router
 from playhouse.db_url import connect
@@ -20,7 +20,7 @@ class Peewee(object):
         Initialize the plugin.
         """
         self.app = app
-        self.database = pw.Proxy()
+        self.database = Proxy()
 
         if app is not None:
             self.init_app(app)
@@ -113,7 +113,7 @@ class Peewee(object):
                 mod = import_module(self.app.config['PEEWEE_MODELS_MODULE'])
                 for model in dir(mod):
                     models = getattr(mod, model)
-                    if not isinstance(model, pw.Model):
+                    if not isinstance(model, PeeweeModel):
                         continue
                     models.append(models)
             except ImportError:

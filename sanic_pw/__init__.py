@@ -1,2 +1,2 @@
-from .database import Peewee  # NOQA
+from .orm import Peewee  # NOQA
 from .models import Model, BaseSignalModel  # NOQA

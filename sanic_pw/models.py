@@ -1,15 +1,10 @@
-import peewee as pw
+from peewee import Model as PeeweeModel
 
-
-def with_metaclass(meta, *bases):
-    """Create a base class with a metaclass."""
-    # This requires a bit of explanation: the basic idea is to make a
-    # dummy metaclass for one level of class instantiation that replaces
-    # itself with the actual metaclass.
-    class metaclass(type):
-        def __new__(cls, name, this_bases, d):
-            return meta(name, bases, d)
-    return type.__new__(metaclass, 'temporary_class', (), {})
+try:
+    # in Peewee ORM 3.* `BaseModel` was renamed to ModelBase
+    from peewee import ModelBase
+except ImportError:
+    from peewee import BaseModel as ModelBase
 
 
 class Signal(object):
@@ -56,7 +51,7 @@ class Signal(object):
             receiver(instance, *args, **kwargs)
 
 
-class BaseSignalModel(pw.BaseModel):
+class BaseSignalModel(ModelBase):
     """
     Special metaclass that provides an opportunity to use pre/post signals
     with instances of a model.
@@ -77,7 +72,7 @@ class BaseSignalModel(pw.BaseModel):
         return cls
 
 
-class Model(with_metaclass(BaseSignalModel, pw.Model)):
+class Model(PeeweeModel, metaclass=BaseSignalModel):
 
     @classmethod
     def select(cls, *args, **kwargs):
