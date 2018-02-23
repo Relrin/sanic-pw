@@ -1,0 +1,12 @@
+Sanic-PW is written and maintained by Valeryi Savich and
+various contributors:
+
+Project Leader:
+
+- Valeryi Savich <relrin78@gmail.com>
+
+The Flask-PW project was used as the base implementation for
+integrating with Sanic Framework. The original code is MIT licensed 
+with the following copyrights from that project:
+
+- (c) 2017-2018 Kirill Klenov <horneds@gmail.com>
