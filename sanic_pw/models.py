@@ -1,10 +1,5 @@
 from peewee import Model as PeeweeModel
-
-try:
-    # in Peewee ORM 3.* `BaseModel` was renamed to ModelBase
-    from peewee import ModelBase
-except ImportError:
-    from peewee import BaseModel as ModelBase
+from peewee import ModelBase
 
 
 class Signal(object):
@@ -65,7 +60,7 @@ class BaseSignalModel(ModelBase):
         cls.post_delete = Signal()
         cls.post_save = Signal()
 
-        if cls._meta.db_table and cls._meta.db_table != 'model':
+        if cls._meta.table_name and cls._meta.table_name != 'model':
             mcs.models.append(cls)
 
         cls._meta.read_slaves = getattr(cls._meta, 'read_slaves', None)
