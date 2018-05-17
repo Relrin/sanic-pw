@@ -17,7 +17,7 @@ install_requires = [
 
 setup(
     name="sanic-pw",
-    version="0.1.0",
+    version="0.2.0",
     license="BSD",
     description='Peewee ORM integration for Sanic framework',
     long_description=_read('README.md'),
