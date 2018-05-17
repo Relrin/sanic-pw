@@ -13,7 +13,7 @@ A port of the [Flask-PW](https://github.com/klen/flask-pw) package for [Sanic fr
 - Python 3.6+ (older not tested)
 
 # Dependency note
-For using the 2nd version of `Peewee ORM`, please use `sanic-pw==0.1.1`.
+For using the 2nd version of Peewee ORM, please use `sanic-pw==0.1.0`.
 
 # Using
 ## Installing
