@@ -12,6 +12,9 @@ A port of the [Flask-PW](https://github.com/klen/flask-pw) package for [Sanic fr
 # Requirements
 - Python 3.6+ (older not tested)
 
+# Dependency note
+For using the 2nd version of `Peewee ORM`, please use `sanic-pw==0.1.1`.
+
 # Using
 ## Installing
 For installing Sanic-PW use the following command:
